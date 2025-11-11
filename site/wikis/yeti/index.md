@@ -7,7 +7,7 @@
 |=~=~=~=~=~=~=~=~=~=~=~=~=|     '--^--'
 
 This is the webpage for Yeti OS. For general information on building and
-installing, see [the github repo](https://github.com/avs-origami/yeti).
+installing, see [the github repo](https://github.com/smartbacteria/yeti).
 
 === INSTALLED PACKAGES
 ======================

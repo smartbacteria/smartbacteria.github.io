@@ -7,7 +7,7 @@
 =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~     '--^--'
 
 This is the webpage for YPM. For general information on building and
-installing, see [the github repo](https://github.com/avs-origami/ypm).
+installing, see [the github repo](https://github.com/smartbacteria/ypm).
 
 === USAGE
 =========

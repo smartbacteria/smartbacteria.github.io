@@ -79,7 +79,7 @@ past. I am still updating this page with more of my past projects.
     that eventually led me to create Tin Can Linux.
 
     [>>> Read more](/wikis/yeti)
-    [>>> Repository](https://github.com/avs-origami/yeti)
+    [>>> Repository](https://github.com/smartbacteria/yeti)
 
     _[________________________________________________________________________]_
 
@@ -90,7 +90,7 @@ past. I am still updating this page with more of my past projects.
     while playing around with Kiss Linux.
 
     [>>> Read more](/wikis/turtle)
-    [>>> Repository](https://github.com/avs-origami/turtle)
+    [>>> Repository](https://github.com/smartbacteria/turtle)
 
     _[________________________________________________________________________]_
 
@@ -100,5 +100,5 @@ past. I am still updating this page with more of my past projects.
     I made this 100-ish line C++ program to go along with Turtle.
 
     [>>> Read more](/wikis/ubar)
-    [>>> Repository](https://github.com/avs-origami/ubar)
+    [>>> Repository](https://github.com/smartbacteria/ubar)
 

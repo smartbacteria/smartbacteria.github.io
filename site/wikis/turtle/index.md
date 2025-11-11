@@ -7,7 +7,7 @@
 =~=~=~=~=~=~=~=~=~=~=~=~=
 
 This is the webpage for turtle. For general information about building and
-installing, see [the github repo](https://github.com/avs-origami/turtle).
+installing, see [the github repo](https://github.com/smartbacteria/turtle).
 
 === CONFIGURATION
 =================
