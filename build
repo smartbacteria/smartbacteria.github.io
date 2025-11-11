@@ -1,0 +1,91 @@
+#!/bin/sh -e
+
+parse() {
+    # Transform plain-text/markdown-ish input into HTML and insert it into the template.
+    
+    # Replace < with &lt;
+    sed 's<\\\&lt;g' |
+
+    # center text in between #[ and ]#
+    sed -E 's#\[<pre style="text-align:center">g' |
+    sed -E 's\]#<\/pre>g' |
+    # vertical align text on the same line as media using @[ and ]@
+    sed -E 's@\[<div class="mediaflex">g' |
+    sed -E 's\]@<\/div>g' |
+    # %[ open span
+    sed -E 's%\[<span>g' |
+    # ]% close span
+    sed -E 's\]%<\/span>g' |
+    # **[ bold
+    sed -E 's\*\*\[<b>g' |
+    # ]** end bold
+    sed -E 's\]\*\*<\/b>g' |
+    # *[ italics
+    sed -E 's\*\[<i>g' |
+    # ]* end italics
+    sed -E 's\]\*<\/i>g' |
+    # _[ light
+    sed -E 's_\[<em>g' |
+    # ]_ end light
+    sed -E 's\]_<\/em>g' |
+    # ```[ code
+    sed -E 's```\[<code>g' |
+    # ]``` end code
+    sed -E 's\]```<\/code>g' |
+    # #![text](url): video
+    sed -E 's#!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\)<video width="640" height="480" controls><source src="\2" type="\1"><\/video>g' |
+    # #!(url): audio
+    sed -E 's#!\( *([^ ]+) *\)<audio controls src="\1"><\/audio>g' |
+    # ?[text](url): open link in new tab
+    sed -E 's\?\[ *([[:alnum:] \&\;\.\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]+) *\] *\( *([^ ]+) *\)<a href="\2" target="_blank" rel="noopener noreferrer">\1<\/a>g' |
+    # !![image](src)(url): inline clickable image
+    sed -E 's!!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\) *\( *([^ ]+) *\)<a href="\3"><img src="\2" alt="\1" class=inline><\/a>g' |
+    # !![image](src)[width]: inline image with width
+    sed -E 's!!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\) *\[ *([^ ]+) *\]<a href="\2"><img src="\2" alt="\1" class=inline style="width:\3ch"><\/a>g' |
+    # !![image](src): inline image
+    sed -E 's!!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\)<a href="\2"><img src="\2" alt="\1" class=inline><\/a>g' |
+    # ![image](src)(url): clickable image
+    sed -E 's!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\) *\( *([^ ]+) *\)<a href="\3"><img src="\2" alt="\1"><\/a>g' |
+    # ![image](src)
+    sed -E 's!\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\] *\( *([^ ]+) *\)<a href="\2"><img src="\2" alt="\1"><\/a>g' |
+    # &[text](url) invisible link (no blue/underline)
+    sed -E 's\&\[ *([[:alnum:] \&\;\.\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]+) *\] *\( *([^ ]+) *\)<a class=invislink href="\2">\1<\/a>g' |
+    # [text](url)
+    sed -E 's\[ *([[:alnum:] \&\;\.\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+-]) *\] *\( *([^ ]+) *"([^"]+)"\)<a href="\2" title="\3">\1<\/a>g' |
+    sed -E 's\[ *([[:alnum:] \&\;\.\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]+) *\] *\( *([^ ]+) *\)<a href="\2">\1<\/a>g' |
+    # ?[url]: open in new tab
+    sed -E "s([^\"\'\>=])(\?\[)(http[s]?://[^[:space:]]*)(\])\1<a href=\3 target=\"_blank\" rel=\"noopener noreferrer\">\3</a>g" |
+    # [url]
+    sed -E "s([^\"\'\>=])(\[)(http[s]?://[^[:space:]]*)(\])\1<a href=\3>\3</a>g" |
+    # url
+    sed -E "s([^\"\'\>=])(http[s]?://[^[:space:]]*)\1<a href=\2>\2</a>g" |
+    sed -E "s^(http[s]?://[^[:space:]]*)<a href=\1>\1</a>g" |
+    # $[section]
+    sed -E 's\$\[ *([[:alnum:] \&\;\?!,\)\+]*.{0,10}[[:alnum:] \&\;\?!,\)\+]) *\]<span id=\1>\[<a class=t href=#\1>\1</a>\]</span>g' |
+    # include html files with $[ file.html
+    sed 's\$\[ cat e' |
+
+    # Hacky fix for sed \n errors
+    sed ':a $!{N; ba}; s\n\\ng'
+}
+
+for dir in $(find site -type d); do
+    mkdir -pv docs/${dir#site/}
+done
+
+for file in $(find site -type f -name "*.md"); do
+    output=$(parse < $file)
+    f=${file%.*}
+    base=${f#site/}
+    name=${base%/index}
+    home=${name/index/home}
+    uppername=${home^}
+    cp template.html docs/$base.html
+    sed -i "s(CONTENT)$output" docs/$base.html
+    sed -i "s(TITLE)$home" docs/$base.html
+done
+
+cp style.css docs/
+cp code.css docs/
+cp site/favicon.png docs/favicon.png
+cp -R img docs/

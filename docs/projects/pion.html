@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<title>AVS Origami - projects/pion</title>
+<meta charset=utf-8>
+<meta name=Description content="A personal website">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<a id="top"></a>
+
+<!-- Flex container. -->
+<div class="container">
+
+<!-- The top banner with navigation links. -->
+ <div class="bannerback"><div class=t><pre style="text-align:center;">
+<table style="font-weight:600;margin:0 auto;"><tr>
+    <td>.</td>
+</tr></table></pre></div></div>
+
+<div class="banner"><div class=t><pre style="text-align:center;margin-top:6px;margin-bottom:6px;">
+<table style="font-weight:600;margin:0 auto;"><tr>
+    <td><a href=/><img src="/img/home.png"></a></td>
+    <td><a href=/ style="color:#cb4b16">Home</a></td>
+    <td><a href=/projects>Projects</a></td>
+    <td><a href=/blog>Blog</a></td>
+    <td><a href=/art>Art</a></td>
+    <td><a href=/projects/tincan.html>Tin Can Linux</a></td>
+    <td><a href=/wikis>Wikis</a></td>
+    <td><a href=https://github.com/avs-origami target="_blank" rel="noopener noreferrer">GitHub</a></td>
+    <td><a href=https://github.com/avs-origami target="_blank" rel="noopener noreferrer"><img src="/img/octo.png"></a></td>
+</tr></table></pre></div></div>
+
+<!-- Main body table div. -->
+<div style="display:table;margin:16px auto;min-height:100%;position:relative;top:96px;">
+
+<!-- The left column with picture and quick info. -->
+<div class=p style="padding-right:6ch"><pre class=prebox style="text-align:center;">
+
+<img src="/img/me.jpg" class=pfp>
+
+<b>Jane Doe</b>
+
+Robotics + Origami
+Creator of <a href=/projects/tincan.html>Tin Can Linux</a>
+<a href=https://www.cee.org/programs/research-science-institute target="_blank" rel="noopener noreferrer">Research Science Institute 2025</a>
+Lover of all things tiny
+
+
+<i>"A dream is not that which you see while
+sleeping, it is that which does not let
+you sleep."</i>
+
+-- Dr. APJ Abdul Kalam
+
+</pre></div>
+
+<!-- The main body text. -->
+<div class=c><pre class=prebox>
+<b>Pion: Custom Arduino Design                                    08/2019 - 03/2022
+--------------------------------------------------------------------------------</b>
+
+When I was working on an Arduino project several years back, one of the biggest
+issues was the footprint of the device I had created. Because I was using an
+Arduino Uno, the only way to supply power portably was to connect a pack of AA
+batteries to the Uno's power jack, which unfortunately resulted in the device
+being both large and heavy. The alternative was to use a 3.3V board with a LiPo
+battery, but at the time the only one I had was an ESP32 based board, which I
+had trouble programming. Frustrated by this, I decided to make my own. After
+numerous failed attempts, I finally succeeded, and this was the result. I chose
+to call it Pion, after the subatomic particle of the same name, to highlight its
+small size.
+
+<pre style="text-align:center">
+<a href="/img/pion/pion_top.jpg"><img src="/img/pion/pion_top.jpg" alt="pion from top" class=inline style="width:39ch"></a>  <a href="/img/pion/pion_bottom.jpg"><img src="/img/pion/pion_bottom.jpg" alt="pion from bottom" class=inline style="width:39ch"></a>
+</pre>
+<i>The top and bottom of Pion. Everything here was hand-soldered</i> 💀<i>
+--------------------------------------------------------------------------------</i>
+
+<a href="/img/pion/pion_quarter.jpg"><img src="/img/pion/pion_quarter.jpg" alt="pion by quarter"></a>
+<i>Pion is about the size of a US quarter.
+--------------------------------------------------------------------------------</i>
+
+<a href="/img/pion/pion_comparison.jpg"><img src="/img/pion/pion_comparison.jpg" alt="size comparison"></a>
+<i>Pion next to a bunch of other popular Arduinos. It's the smallest of them all!
+--------------------------------------------------------------------------------</i>
+
+Being based off the AtMega328, Pion is functionally equivalent to an Uno, Nano,
+or Pro Mini, while being smaller, and in my opinion more versatile. The battery
+connector allows you to power it with a rechargeable LiPo, and the female header
+pins make it easy to connect short breadboard wires or design shields (expansion
+boards that plug into the top) which are traditionally only available for the
+Uno. To illustrate this, I also made this USB-C shield for Pion since it
+normally doesn't have a USB port for programming:
+
+<pre style="text-align:center">
+<a href="/img/pion/pion_shield.jpg"><img src="/img/pion/pion_shield.jpg" alt="usb shield" class=inline style="width:39ch"></a>  <a href="/img/pion/pion_shield_stack.jpg"><img src="/img/pion/pion_shield_stack.jpg" alt="usb shield" class=inline style="width:39ch"></a>
+</pre>
+<i>The USB shield I made for Pion, in action. Soldering was a pain.
+--------------------------------------------------------------------------------</i>
+
+Making this was a tedious yet rewarding process; I learned a lot about how
+Arduinos work, gained experience with designing custom PCBs, and refined my
+soldering skills (those 0402 capacitors were the worst). And in the process, I
+made a tiny, cool-looking board to show off and use in projects.
+
+By the time I finally got this working, I had moved on from the project that
+inspired its creation. But having made it, I had to use it:
+<video width="640" height="480" controls><source src="/img/pion/pion_car.mp4" type="video/mp4"></video>
+<video width="640" height="480" controls><source src="/img/pion/pion_flappy.mp4" type="video/mp4"></video>
+
+<a href="/projects">&lt;&lt;&lt; Go back</a>
+</pre></div>
+
+<!-- Invisible right column so that the body is centered. -->
+<div class=p style="padding-left:6ch;"><pre class=prebox>
+<div class=ctr>==============   Updates   ==============</div>
+
+<em>News - 03/08/2025</em>
+<a href=https://github.com/tincan-linux target="_blank" rel="noopener noreferrer">Tin Can: 32 followers + 19 stars on GitHub</a>
+
+<em>News - 12/01/2024</em>
+<a href=https://github.com/avs-origami/arc/releases/tag/v0.0.4 target="_blank" rel="noopener noreferrer">Arc: first release candidate</a>
+
+<em>Post - 11/19/2024</em>
+<a href=/blog/torch-rust-cxx.html>LibTorch in Rust using FFIs</a>
+
+<em>News - 11/07/2024</em>
+<a href=https://github.com/avs-origami/arc target="_blank" rel="noopener noreferrer">Arc: rusty package manager for Linux</a>
+
+<em>Post - 06/23/2024</em>
+<a href=/blog/shmem-ipc.html>Shared Memory IPC in Rust</a>
+
+</pre></div>
+
+<!-- End main body table div. -->
+</div>
+
+<!-- Fill remaining space if any left. -->
+<main></main>
+
+<!-- Footer. -->
+<footer><div class=footer>
+
+<!-- Left spacer. -->
+<div class=t></div>
+
+<!-- Left side footer text. -->
+<div class=tt><pre>
+
+AVS Origami (C) 2023-2025
+
+</pre></div>
+
+<!-- Right side footer text. -->
+<div class=tt style="text-align:right;"><pre style="text-align:right;">
+
+<a href="#top">Back to top</a>
+
+</pre></div>
+
+<!-- Right spacer. -->
+<div class=t></div>
+
+<!-- End footer. -->
+</div></footer>
+
+<!-- End container. -->
+</div>
+
+<link rel="stylesheet" href=/code.css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>

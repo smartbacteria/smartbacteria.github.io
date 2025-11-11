@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<title>AVS Origami - projects/tincan</title>
+<meta charset=utf-8>
+<meta name=Description content="A personal website">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<a id="top"></a>
+
+<!-- Flex container. -->
+<div class="container">
+
+<!-- The top banner with navigation links. -->
+ <div class="bannerback"><div class=t><pre style="text-align:center;">
+<table style="font-weight:600;margin:0 auto;"><tr>
+    <td>.</td>
+</tr></table></pre></div></div>
+
+<div class="banner"><div class=t><pre style="text-align:center;margin-top:6px;margin-bottom:6px;">
+<table style="font-weight:600;margin:0 auto;"><tr>
+    <td><a href=/><img src="/img/home.png"></a></td>
+    <td><a href=/ style="color:#cb4b16">Home</a></td>
+    <td><a href=/projects>Projects</a></td>
+    <td><a href=/blog>Blog</a></td>
+    <td><a href=/art>Art</a></td>
+    <td><a href=/projects/tincan.html>Tin Can Linux</a></td>
+    <td><a href=/wikis>Wikis</a></td>
+    <td><a href=https://github.com/avs-origami target="_blank" rel="noopener noreferrer">GitHub</a></td>
+    <td><a href=https://github.com/avs-origami target="_blank" rel="noopener noreferrer"><img src="/img/octo.png"></a></td>
+</tr></table></pre></div></div>
+
+<!-- Main body table div. -->
+<div style="display:table;margin:16px auto;min-height:100%;position:relative;top:96px;">
+
+<!-- The left column with picture and quick info. -->
+<div class=p style="padding-right:6ch"><pre class=prebox style="text-align:center;">
+
+<img src="/img/me.jpg" class=pfp>
+
+<b>Jane Doe</b>
+
+Robotics + Origami
+Creator of <a href=/projects/tincan.html>Tin Can Linux</a>
+<a href=https://www.cee.org/programs/research-science-institute target="_blank" rel="noopener noreferrer">Research Science Institute 2025</a>
+Lover of all things tiny
+
+
+<i>"A dream is not that which you see while
+sleeping, it is that which does not let
+you sleep."</i>
+
+-- Dr. APJ Abdul Kalam
+
+</pre></div>
+
+<!-- The main body text. -->
+<div class=c><pre class=prebox>
+<b>Tin Can Linux: A Custom Linux Distribution                     07/2024 - present
+--------------------------------------------------------------------------------</b>
+
+This summer I began working on a custom Linux package manager, and soon after
+began to design a custom distribution using this package manager. This is a
+place for me to write about how I got here and write about the process. For
+specifics about the distribution and installation instructions, see the official
+website at <a href=https://tincan-linux.github.io target="_blank" rel="noopener noreferrer">https://tincan-linux.github.io</a>.
+
+
+=== A Brief Overview
+====================
+
+Tin Can Linux is an independent hobby distribution made with the goal of being
+compact, understandable, hackable, and easy to maintain. It aims to achieve
+this by using unconventional packages that reduce the footprint of the
+distribution, eliminating unnecessary dependencies, and making some
+modifications to the standard file system layout. It also uses a custom
+package manager to handle installation and removal of software.
+
+At the moment, I have added enough packages the to repositories to start a
+graphical session with a terminal and web browser (NetSurf). Here's some
+screenshots of Tin Can in action:
+
+<a href="/img/tincan-1.png"><img src="/img/tincan-1.png" alt="sysfetch"></a>
+
+<a href="/img/tincan-2.png"><img src="/img/tincan-2.png" alt="browser"></a>
+
+<a href="/img/tincan-3.png"><img src="/img/tincan-3.png" alt="editor"></a>
+
+
+I am continuing to work on adding a few more packages, completing the transition
+from Xorg to Wayland, and shrinking the footprint of the distro.
+
+Tin Can is still in its initial stages; however, at the moment it is reasonably
+stable, and I am able to use it for simpler tasks like programming and web
+browsing. It also has a small base of around 10 users.
+
+
+=== How and Why?
+================
+
+I have wanted to make my own Linux distribution ever since I discovered Linux
+From Scratch (LFS) a few years back. The first time I tried it, I was eventually
+able to work through the build process, but much to my dismay it wouldn't boot.
+Since then I've revisited the idea on and off, with further attempts to make my
+LFS boot, exploring Kiss Linux, and taking on the simpler task of making a
+minimal distro for the Raspberry Pi Zero based on Cross-LFS Embedded. Though the
+process has been slow, taking on these little projects and spending more time
+actively using Linux has helped me gain a better understanding of how it works.
+So, when I decided to try my hand at making a custom distribution again, it
+actually panned out, and Tin Can is the result.
+
+I primarily started doing this just for the fun of it. This project has been a
+nice thing to have going on the side, to occasionally fall back on when I'm
+bored, stressed, or just need a quick distraction. But aside from that, one of
+my motivations for making this was to try making a distro that was as compact
+as possible and required the fewest packages while still being reasonably
+usable. I've always been curious about the ways that I could push an operating
+system to the limits specifically in terms of the footprint, and the flexibility
+and control that Linux offers has made it a perfect testing ground to satiate
+this curiosity.
+
+And finally, I've been inspired by various other really cool and unique projects
+from the community, including:
+
+  - Kiss Linux (<a href=https://kisslinux.github.io target="_blank" rel="noopener noreferrer">https://kisslinux.github.io</a>)
+  - StaLi (<a href=https://sta.li target="_blank" rel="noopener noreferrer">https://sta.li</a>)
+  - Glaucus (<a href=https://glaucuslinux.org target="_blank" rel="noopener noreferrer">https://glaucuslinux.org</a>)
+  - Oasis Linux (<a href=https://github.com/oasislinux target="_blank" rel="noopener noreferrer">https://github.com/oasislinux</a>)
+  - Linux From Scratch (<a href=https://www.linuxfromscratch.org target="_blank" rel="noopener noreferrer">https://www.linuxfromscratch.org</a>)
+
+to name a few of the most direct influences.
+
+
+=== Future Direction
+====================
+
+For now, I plan to finish transitioning the distribution from Xorg to Wayland as
+the choice of display server protocol and work on further simplifying the file
+system layout. I also have plans to make some changes to which packages are
+included (change OpenSSL to BearSSL, bison to byacc, flex to reflex, etc) and
+try removing more dependencies.
+
+<a href="/projects">&lt;&lt;&lt; Go back</a>
+</pre></div>
+
+<!-- Invisible right column so that the body is centered. -->
+<div class=p style="padding-left:6ch;"><pre class=prebox>
+<div class=ctr>==============   Updates   ==============</div>
+
+<em>News - 03/08/2025</em>
+<a href=https://github.com/tincan-linux target="_blank" rel="noopener noreferrer">Tin Can: 32 followers + 19 stars on GitHub</a>
+
+<em>News - 12/01/2024</em>
+<a href=https://github.com/avs-origami/arc/releases/tag/v0.0.4 target="_blank" rel="noopener noreferrer">Arc: first release candidate</a>
+
+<em>Post - 11/19/2024</em>
+<a href=/blog/torch-rust-cxx.html>LibTorch in Rust using FFIs</a>
+
+<em>News - 11/07/2024</em>
+<a href=https://github.com/avs-origami/arc target="_blank" rel="noopener noreferrer">Arc: rusty package manager for Linux</a>
+
+<em>Post - 06/23/2024</em>
+<a href=/blog/shmem-ipc.html>Shared Memory IPC in Rust</a>
+
+</pre></div>
+
+<!-- End main body table div. -->
+</div>
+
+<!-- Fill remaining space if any left. -->
+<main></main>
+
+<!-- Footer. -->
+<footer><div class=footer>
+
+<!-- Left spacer. -->
+<div class=t></div>
+
+<!-- Left side footer text. -->
+<div class=tt><pre>
+
+AVS Origami (C) 2023-2025
+
+</pre></div>
+
+<!-- Right side footer text. -->
+<div class=tt style="text-align:right;"><pre style="text-align:right;">
+
+<a href="#top">Back to top</a>
+
+</pre></div>
+
+<!-- Right spacer. -->
+<div class=t></div>
+
+<!-- End footer. -->
+</div></footer>
+
+<!-- End container. -->
+</div>
+
+<link rel="stylesheet" href=/code.css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
